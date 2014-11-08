@@ -29,13 +29,15 @@ RUN apt-get update \
 
 # Get and build AFL.
 RUN wget http://lcamtuf.coredump.cx/soft/afl.tgz \
-      && tar xzf afl.tgz \
-      && cd afl-0.44b \
+      --no-verbose \
+      && mkdir afl-src \
+      && tar -xzf afl.tgz -C afl-src --strip-components=1 \
+      && cd afl-src \
       && sed -i 's/^\/\/ #define USE_64BIT/#define USE_64BIT/gI' config.h \
       && make \
       && make install \
       && rm -rf /tmp/afl.tgz \
-                /tmp/afl-0.44b
+                /tmp/afl-src
 
 # Get and build libjpeg-turbo.
 RUN svn -q co \
