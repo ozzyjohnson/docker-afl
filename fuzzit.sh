@@ -32,7 +32,7 @@ function help {
 }
 
 # Simple command line argument handling.
-while getopts ':d:f:i:n:o:p' flag
+while getopts ':d:f:i:n:o:p:' flag
     
 do
     case $flag in
