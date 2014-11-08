@@ -65,7 +65,7 @@ With the results acessible via the mounted volume.
 
 Parallel Runs:
 
-    The script [fuzzit.sh](https://github.com/ozzyjohnson/docker-afl/blob/master/fuzzit.sh) simplifies running a set of parallel containers. With no options specified it will launch one container per CPU and look for ``in``` and ```out``` dirs in the current user's home directoty.
+The script [fuzzit.sh](https://github.com/ozzyjohnson/docker-afl/blob/master/fuzzit.sh) simplifies running a set of parallel containers. With no options specified it will launch one container per CPU and look for ``in``` and ```out``` dirs in the current user's home directoty.
 
     Usage: fuzzit.sh [OPTION]
     Launch a team of fuzzers. Uses the number of available cores
