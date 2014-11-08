@@ -78,3 +78,21 @@ The script [fuzzit.sh](https://github.com/ozzyjohnson/docker-afl/blob/master/fuz
      -t            fuzz ID convention
      -d            data directory to be mapped to containers
 
+Set up input and output as usual.
+
+    mkdir ~/afl-test
+    mkdir ~/afl-test/in_dir
+    echo 'hello' >~/afl-test/in_dir/hello
+    sudo ./fuzzit.sh -n 8 -p alf -d ~/afl-test
+
+Next, we can confirm they're all running.
+
+    sudo docker ps
+
+Check the progress of a particular container or figure out why it failed to continue running.
+
+    sudo docker logs afl2
+
+Or and remove the set quickly.
+
+    for i in `seq 1 8`; do sudo docker kill alf${i} && sudo docker rm alf${i};done
