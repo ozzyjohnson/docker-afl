@@ -63,9 +63,9 @@ With the results acessible via the mounted volume.
 
     ~/afl/afl-data/out_dir/queue
 
-Parallel Runs:
+### Parallel Runs:
 
-The script [fuzzit.sh](https://github.com/ozzyjohnson/docker-afl/blob/master/fuzzit.sh) simplifies running a set of parallel containers. With no options specified it will launch one container per CPU and look for ``in``` and ```out``` dirs in the current user's home directoty.
+The script [fuzzit.sh](https://github.com/ozzyjohnson/docker-afl/blob/master/fuzzit.sh) simplifies running a set of parallel containers. With no options specified it will launch one container per CPU and look for input and out dirs in the current user's home directoty.
 
     Usage: fuzzit.sh [OPTION]
     Launch a team of fuzzers. Uses the number of available cores
@@ -93,6 +93,6 @@ Check the progress of a particular container or figure out why it failed to cont
 
     sudo docker logs afl2
 
-Or and remove the set quickly.
+Or remove the set quickly.
 
     for i in `seq 1 8`; do sudo docker kill alf${i} && sudo docker rm alf${i};done
