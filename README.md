@@ -11,7 +11,7 @@ I ran across the post [Pulling JPEGs out of thin air](http://lcamtuf.blogspot.co
 
 To recreate the experiment described.
 
-Prepare the host if necessary.
+Prepare the host if necessary. Trusty defaults this to apport which must be changed while Amazon Linux is ready to run.
 
     echo core | sudo tee /proc/sys/kernel/core_pattern
 
@@ -22,11 +22,13 @@ Set up data directory for input and results:
 
 Pull or build from the provided Dockerfile.
 
-    docker pull ozzyjohnson/afl
+    sudo docker pull ozzyjohnson/afl
 
 Run interactively.
 
-    docker run -v ~/afl/afl-data:/data -it --rm ozzyjohnson/afl afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
+    sudo docker run -v ~/afl/afl-data:/data -it --rm \
+      ozzyjohnson/afl \
+      afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
 
                            american fuzzy lop 0.43b (djpeg)
     
@@ -53,7 +55,9 @@ Run interactively.
 
 Or detached.
 
-   sudo docker run -v ~/afl/afl-data:/data -d ozzyjohnson/afl afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
+   sudo docker run -v ~/afl/afl-data:/data -d \
+     ozzyjohnson/afl \
+     afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
 
 With the results acessible via the mounted volume.
 
