@@ -55,10 +55,10 @@ Run interactively.
 
 Or detached.
 
-   sudo docker run -v ~/afl/afl-data:/data -d \
-     ozzyjohnson/afl \
-     afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
+    sudo docker run -v ~/afl/afl-data:/data -d \
+      ozzyjohnson/afl \
+      afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
 
 With the results acessible via the mounted volume.
 
-   ~/afl/afl-data/out_dir/queue
+    ~/afl/afl-data/out_dir/queue
