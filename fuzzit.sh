@@ -23,16 +23,16 @@ function help {
     echo "Launch a team of fuzzers. Uses the number of available cores"
     echo "by default."
     echo " "
-    echo "-i            input directory"
-    echo "-o            output directory"
-    echo "-n            number of fuzzers to launch"
-    echo "-f            fuzz target"
-    echo "-t            fuzz ID convention"
     echo "-d            data directory to be mapped to containers"
+    echo "-f            fuzzer target"
+    echo "-i            input directory"
+    echo "-n            number of fuzzers to launch"
+    echo "-o            output directory"
+    echo "-p            fuzzer ID prefix"
 }
 
 # Simple command line argument handling.
-while getopts ':o:i:n:d:t:f' flag
+while getopts ':d:f:i:n:o:p' flag
     
 do
     case $flag in
@@ -40,7 +40,7 @@ do
         o) OUT_DIR=$OPTARG;;
         n) NUM_FUZZERS=$OPTARG;;
         f) FUZZ_TARGET=$OPTARG;;
-        t) FUZZ_ID=$OPTARG;;
+        p) FUZZ_ID=$OPTARG;;
         d) DATA_DIR=$OPTARG;;
         \?) help; exit 2;;
     esac
@@ -50,8 +50,11 @@ sudo docker run -v $DATA_DIR:/data -d --name=${FUZZ_ID}1 \
   $AFL_IMAGE \
   afl-fuzz -i $IN_DIR -o $OUT_DIR -S ${FUZZ_ID}1 -D $FUZZ_TARGET
 
+if [ $NUM_FUZZERS -gt 1 ]
+then
 for i in `seq 2 $NUM_FUZZERS`; do
     sudo docker run -v $DATA_DIR:/data -d --name=${FUZZ_ID}${i} \
       $AFL_IMAGE \
       afl-fuzz -i $IN_DIR -o $OUT_DIR -S ${FUZZ_ID}${i} $FUZZ_TARGET
 done
+fi
