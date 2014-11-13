@@ -36,6 +36,9 @@ RUN \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Get ready to build.
+WORKDIR /tmp
+
 # Get and build AFL.
 RUN \
     wget \
