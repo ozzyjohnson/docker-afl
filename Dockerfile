@@ -48,7 +48,7 @@ RUN \
     && tar -xzf afl.tgz -C afl-src --strip-components=1 \
     && cd afl-src \
     && sed -i 's/^\/\/ #define USE_64BIT/#define USE_64BIT/gI' config.h \
-    && make -j`getconf _NPROCESSORS_ONLN` \
+    && make \
     && make install \
     && rm -rf \
         /tmp/afl.tgz \
