@@ -4,7 +4,7 @@ MAINTAINER Ozzy Johnson <docker@ozzy.io>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV AFL_INSTALL http://lcamtuf.coredump.cx/soft/afl.tgz
+ENV AFL_INSTALL http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz
 ENV LIBJPEG_TURBO_INSTALL svn://svn.code.sf.net/p/libjpeg-turbo/code/branches/1.3.x
 
 # Update and install minimal.
@@ -45,13 +45,16 @@ RUN \
     $AFL_INSTALL \
         --no-verbose \
     && mkdir afl-src \
-    && tar -xzf afl.tgz -C afl-src --strip-components=1 \
+    && tar -xzf afl-latest.tgz \
+        -C \
+        afl-src \
+        --strip-components=1 \
     && cd afl-src \
     && sed -i 's/^\/\/ #define USE_64BIT/#define USE_64BIT/gI' config.h \
     && make \
     && make install \
     && rm -rf \
-        /tmp/afl.tgz \
+        /tmp/afl-latest.tgz \
         /tmp/afl-src
 
 # Get and build libjpeg-turbo.
