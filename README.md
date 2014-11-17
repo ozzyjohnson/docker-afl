@@ -1,7 +1,7 @@
 docker-afl
 ==========
 
-**Built:** 2014.11.16 - 0.50b
+**Built:** 2014.11.17 - 0.52b
  
 [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/) and libjpeg-turbo built to play with fuzzing on Debian wheezy.
 
@@ -32,27 +32,28 @@ Run interactively.
       ozzyjohnson/afl \
       afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
 
-                           american fuzzy lop 0.43b (djpeg)
-    
+                           american fuzzy lop 0.52b (djpeg)
+
     ┌─ process timing ─────────────────────────────────────┬─ overall results ─────┐
-    │        run time : 0 days, 0 hrs, 4 min, 4 sec        │  cycles done : 0      │
-    │   last new path : 0 days, 0 hrs, 0 min, 1 sec        │  total paths : 91     │
+    │        run time : 0 days, 0 hrs, 0 min, 14 sec       │  cycles done : 0      │
+    │   last new path : 0 days, 0 hrs, 0 min, 1 sec        │  total paths : 11     │
     │ last uniq crash : none seen yet                      │ uniq crashes : 0      │
     │  last uniq hang : none seen yet                      │   uniq hangs : 0      │
     ├─ cycle progress ────────────────────┬─ map coverage ─┴───────────────────────┤
-    │  now processing : 27 (29.67%)       │    map density : 576 (3.52%)           │
-    │ paths timed out : 0 (0.00%)         │ count coverage : 1.35 bits/tuple       │
+    │  now processing : 3 (27.27%)        │    map density : 217 (1.32%)           │
+    │ paths timed out : 0 (0.00%)         │ count coverage : 1.10 bits/tuple       │
     ├─ stage progress ────────────────────┼─ findings in depth ────────────────────┤
-    │  now trying : havoc                 │ favored paths : 61 (67.03%)            │
-    │ stage execs : 26.8k/60.0k (44.75%)  │  new edges on : 57 (62.64%)            │
-    │ total execs : 819k                  │ total crashes : 0 (0 unique)           │
-    │  exec speed : 3359/sec              │   total hangs : 0 (0 unique)           │
+    │  now trying : havoc                 │ favored paths : 4 (36.36%)             │
+    │ stage execs : 12.0k/160k (7.49%)    │  new edges on : 9 (81.82%)             │
+    │ total execs : 48.4k                 │ total crashes : 0 (0 unique)           │
+    │  exec speed : 3425/sec              │   total hangs : 0 (0 unique)           │
     ├─ fuzzing strategy yields ───────────┴───────────────┬─ path geometry ────────┤
-    │   bit flips : 0/488, 0/472, 0/440                   │   levels : 5           │
-    │  byte flips : 0/61, 0/45, 0/17                      │  pending : 76          │
-    │ arithmetics : 1/4270, 0/1459, 0/78                  │ pend fav : 49          │
-    │  known ints : 0/547, 0/1663, 0/850                  │   latent : 0           │
-    │       havoc : 87/782k, 0/0                          │ variable : 0           │
+    │   bit flips : 0/80, 0/76, 0/68                      │   levels : 4           │
+    │  byte flips : 0/10, 0/6, 0/1                        │  pending : 8           │
+    │ arithmetics : 0/700, 0/35, 0/0                      │ pend fav : 2           │
+    │  known ints : 1/90, 0/222, 0/50                     │ imported : 0           │
+    │       havoc : 3/35.0k, 0/0                          │ variable : 0           │
+    │        trim : 1 B/2 (20.00% gain)                   │   latent : 0           │
     └─────────────────────────────────────────────────────┴────────────────────────┘
 
 Or detached.
