@@ -1,7 +1,7 @@
 docker-afl
 ==========
 
-**Built:** 2014.11.19 - 0.56b
+**Built:** 2014.11.19 - 0.57b
  
 [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/) and libjpeg-turbo built to play with fuzzing on Debian wheezy.
 
