@@ -7,7 +7,7 @@ docker-afl
 
 ### Background:
 
-I ran across the post [Pulling JPEGs out of thin air](http://lcamtuf.blogspot.com/2014/11/pulling-jpegs-out-of-thin-air.html) linked on Hacker News today, found it fascinating and wanted to give it a try. This image is the result.
+I ran across the post [Pulling JPEGs out of thin air](http://lcamtuf.blogspot.com/2014/11/pulling-jpegs-out-of-thin-air.html), found it fascinating and wanted to give it a try. This image is the result.
 
 ### Usage:
 
