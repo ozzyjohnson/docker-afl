@@ -23,14 +23,14 @@ RUN \
         --yes \
         --no-install-recommends \
         --no-install-suggests \
-    autoconf=2.69-1 \
-    automake=1:1.11.6-1 \
-    gcc=4:4.7.2-1 \
-    libtool=2.4.2-1.1 \
-    make=3.81-8.2 \
-    nasm=2.10.01-1 \
-    subversion=1.6.17dfsg-4+deb7u6 \
-    wget=1.13.4-3+deb7u2 \
+    autoconf \
+    automake \
+    gcc \
+    libtool \
+    make \
+    nasm \
+    subversion \
+    wget \
 
 # Clean up packages.
     && apt-get clean \

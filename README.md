@@ -32,30 +32,31 @@ Run interactively.
       ozzyjohnson/afl \
       afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
 
-    			american fuzzy lop 0.72b (djpeg)
 
-    ┌─ process timing ─────────────────────────────────────┬─ overall results ─────┐
-    │        run time : 0 days, 0 hrs, 0 min, 8 sec        │  cycles done : 0      │
-    │   last new path : 0 days, 0 hrs, 0 min, 1 sec        │  total paths : 4      │
-    │ last uniq crash : none seen yet                      │ uniq crashes : 0      │
-    │  last uniq hang : none seen yet                      │   uniq hangs : 0      │
-    ├─ cycle progress ────────────────────┬─ map coverage ─┴───────────────────────┤
-    │  now processing : 2 (50.00%)        │    map density : 177 (0.54%)           │
-    │ paths timed out : 0 (0.00%)         │ count coverage : 1.05 bits/tuple       │
-    ├─ stage progress ────────────────────┼─ findings in depth ────────────────────┤
-    │  now trying : havoc                 │ favored paths : 2 (50.00%)             │
-    │ stage execs : 4540/5000 (90.80%)    │  new edges on : 4 (100.00%)            │
-    │ total execs : 30.8k                 │ total crashes : 0 (0 unique)           │
-    │  exec speed : 3632/sec              │   total hangs : 0 (0 unique)           │
-    ├─ fuzzing strategy yields ───────────┴───────────────┬─ path geometry ────────┤
-    │   bit flips : 0/72, 0/69, 0/63                      │    levels : 3          │
-    │  byte flips : 0/9, 0/6, 0/2                         │   pending : 2          │
-    │ arithmetics : 0/630, 0/0, 0/0                       │  pend fav : 1          │
-    │  known ints : 1/80, 0/222, 0/100                    │ own finds : 3          │
-    │       havoc : 2/25.0k, 0/0                          │  imported : 0          │
-    │        trim : 1 B/2 (20.00% gain)                   │  variable : 0          │
-    └─────────────────────────────────────────────────────┴────────────────────────┘
-    								     [cpu:172%]
+				american fuzzy lop 1.13b (djpeg)
+
+	┌─ process timing ─────────────────────────────────────┬─ overall results ─────┐
+	│        run time : 0 days, 0 hrs, 0 min, 32 sec       │  cycles done : 0      │
+	│   last new path : 0 days, 0 hrs, 0 min, 1 sec        │  total paths : 21     │
+	│ last uniq crash : none seen yet                      │ uniq crashes : 0      │
+	│  last uniq hang : none seen yet                      │   uniq hangs : 0      │
+	├─ cycle progress ────────────────────┬─ map coverage ─┴───────────────────────┤
+	│  now processing : 3 (14.29%)        │    map density : 257 (0.39%)           │
+	│ paths timed out : 0 (0.00%)         │ count coverage : 1.23 bits/tuple       │
+	├─ stage progress ────────────────────┼─ findings in depth ────────────────────┤
+	│  now trying : havoc                 │ favored paths : 3 (14.29%)             │
+	│ stage execs : 85.2k/160k (53.28%)   │  new edges on : 19 (90.48%)            │
+	│ total execs : 136k                  │ total crashes : 0 (0 unique)           │
+	│  exec speed : 4111/sec              │   total hangs : 0 (0 unique)           │
+	├─ fuzzing strategy yields ───────────┴───────────────┬─ path geometry ────────┤
+	│   bit flips : 0/72, 0/68, 0/60                      │    levels : 3          │
+	│  byte flips : 0/9, 0/5, 0/1                         │   pending : 18         │
+	│ arithmetics : 0/630, 0/35, 0/0                      │  pend fav : 1          │
+	│  known ints : 0/81, 0/185, 0/50                     │ own finds : 20         │
+	│  dictionary : 0/0, 0/0, 0/0                         │  imported : 0          │
+	│       havoc : 3/50.0k, 0/0                          │  variable : 0          │
+	│        trim : 2 B/1 (33.33% gain)                   ├────────────────────────┘
+	└─────────────────────────────────────────────────────┘             [cpu:154%]
 
 Or detached.
 
