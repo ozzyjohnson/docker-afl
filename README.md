@@ -1,8 +1,8 @@
 docker-afl
 ==========
 
-**Built:** 2015.03.01 - 1.50b
- 
+**Built:** 2015.09.20 - 1.94b
+
 [American Fuzzy Lop (AFL)](http://lcamtuf.coredump.cx/afl/) and libjpeg-turbo built to play with fuzzing on Debian wheezy.
 
 ### Background:
@@ -33,30 +33,30 @@ Run interactively.
       afl-fuzz -i in_dir -o out_dir /opt/libjpeg-turbo/bin/djpeg
 
 
-				american fuzzy lop 1.13b (djpeg)
+          american fuzzy lop 1.94b (djpeg)
 
-	┌─ process timing ─────────────────────────────────────┬─ overall results ─────┐
-	│        run time : 0 days, 0 hrs, 0 min, 32 sec       │  cycles done : 0      │
-	│   last new path : 0 days, 0 hrs, 0 min, 1 sec        │  total paths : 21     │
-	│ last uniq crash : none seen yet                      │ uniq crashes : 0      │
-	│  last uniq hang : none seen yet                      │   uniq hangs : 0      │
-	├─ cycle progress ────────────────────┬─ map coverage ─┴───────────────────────┤
-	│  now processing : 3 (14.29%)        │    map density : 257 (0.39%)           │
-	│ paths timed out : 0 (0.00%)         │ count coverage : 1.23 bits/tuple       │
-	├─ stage progress ────────────────────┼─ findings in depth ────────────────────┤
-	│  now trying : havoc                 │ favored paths : 3 (14.29%)             │
-	│ stage execs : 85.2k/160k (53.28%)   │  new edges on : 19 (90.48%)            │
-	│ total execs : 136k                  │ total crashes : 0 (0 unique)           │
-	│  exec speed : 4111/sec              │   total hangs : 0 (0 unique)           │
-	├─ fuzzing strategy yields ───────────┴───────────────┬─ path geometry ────────┤
-	│   bit flips : 0/72, 0/68, 0/60                      │    levels : 3          │
-	│  byte flips : 0/9, 0/5, 0/1                         │   pending : 18         │
-	│ arithmetics : 0/630, 0/35, 0/0                      │  pend fav : 1          │
-	│  known ints : 0/81, 0/185, 0/50                     │ own finds : 20         │
-	│  dictionary : 0/0, 0/0, 0/0                         │  imported : 0          │
-	│       havoc : 3/50.0k, 0/0                          │  variable : 0          │
-	│        trim : 2 B/1 (33.33% gain)                   ├────────────────────────┘
-	└─────────────────────────────────────────────────────┘             [cpu:154%]
+    ┌─ process timing ─────────────────────────────────────┬─ overall results ─────┐
+    │        run time : 0 days, 0 hrs, 0 min, 6 sec        │  cycles done : 0      │
+    │   last new path : 0 days, 0 hrs, 0 min, 4 sec        │  total paths : 5      │
+    │ last uniq crash : none seen yet                      │ uniq crashes : 0      │
+    │  last uniq hang : none seen yet                      │   uniq hangs : 0      │
+    ├─ cycle progress ────────────────────┬─ map coverage ─┴───────────────────────┤
+    │  now processing : 0 (0.00%)         │    map density : 185 (0.28%)           │
+    │ paths timed out : 0 (0.00%)         │ count coverage : 1.05 bits/tuple       │
+    ├─ stage progress ────────────────────┼─ findings in depth ────────────────────┤
+    │  now trying : havoc                 │ favored paths : 1 (20.00%)             │
+    │ stage execs : 41.3k/80.0k (51.56%)  │  new edges on : 5 (100.00%)            │
+    │ total execs : 41.8k                 │ total crashes : 0 (0 unique)           │
+    │  exec speed : 4182/sec              │   total hangs : 0 (0 unique)           │
+    ├─ fuzzing strategy yields ───────────┴───────────────┬─ path geometry ────────┤
+    │   bit flips : 0/32, 0/31, 0/29                      │    levels : 2          │
+    │  byte flips : 0/4, 0/3, 0/1                         │   pending : 5          │
+    │ arithmetics : 0/224, 0/0, 0/0                       │  pend fav : 1          │
+    │  known ints : 0/23, 0/84, 0/44                      │ own finds : 4          │
+    │  dictionary : 0/0, 0/0, 0/0                         │  imported : n/a        │
+    │       havoc : 0/0, 0/0                              │  variable : 0          │
+    │        trim : 33.33%/1, 0.00%                       ├────────────────────────┘
+    └─────────────────────────────────────────────────────┘             [cpu: 99%]
 
 Or detached.
 
@@ -75,7 +75,7 @@ The script [fuzzit.sh](https://github.com/ozzyjohnson/docker-afl/blob/master/fuz
     Usage: fuzzit.sh [OPTION]
     Launch a team of fuzzers. Uses the number of available cores
     by default.
-     
+
      -i            input directory
      -o            output directory
      -n            number of fuzzers to launch
