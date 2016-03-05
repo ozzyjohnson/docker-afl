@@ -2,10 +2,12 @@ FROM debian:wheezy
 
 MAINTAINER Ozzy Johnson <docker@ozzy.io>
 
+ENV REFRESHED_AT 2016-03-05
+
 ENV DEBIAN_FRONTEND noninteractive
 
 ENV AFL_INSTALL http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz
-ENV LIBJPEG_TURBO_INSTALL svn://svn.code.sf.net/p/libjpeg-turbo/code/branches/1.3.x
+ENV LIBJPEG_TURBO_INSTALL svn://svn.code.sf.net/p/libjpeg-turbo/code/branches/1.4.x
 
 # Update and install minimal.
 #
